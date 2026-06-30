@@ -1,0 +1,15 @@
+name: test-a2-1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Hello from linux-aarch64-a2-1 runner"
+      - name: Check NPU
+        run: npu-smi info || echo "npu-smi not available"
+      - name: Arch
+        run: uname -m
